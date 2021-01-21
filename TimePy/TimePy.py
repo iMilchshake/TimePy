@@ -1,6 +1,8 @@
 import math
 import time
-
+import termgraph as tg
+import termplotlib as tpl
+import numpy as np
 
 def calculateTimeDifference(t1, t2):
     """ calculates the time difference between two given times """
@@ -35,9 +37,9 @@ class TimeController:
         self.timerCount = 0
 
     def __repr__(self):
-        return self.print()
+        return self.print(do_print=False)
 
-    def print(self, unit='s', decimals=2, show_deltas=True, show_notes=True):
+    def print(self, unit='s', decimals=2, show_deltas=True, show_notes=True, do_print=True):
         """ returns all times and time differences """
         output = ""
         for i in range(self.timerCount):
@@ -55,7 +57,26 @@ class TimeController:
             # finish line
             if i < self.timerCount - 1:
                 output += "\n"
+
+        if do_print:
+            print(output)
         return output
+
+    def barChart(self, unit='s', decimals=2):
+        timeDifferences = []
+        labels = []
+        for t in range(1, self.timerCount):
+            timeDifferences.append(self.getDifference(t, t-1))
+            labels.append("[%d] " % t + self.__notes[t] + " (%s)" % timeToString(self.getDifference(t, t-1), unit, decimals))
+
+        fig = tpl.figure()
+        fig.barh(
+            timeDifferences,
+            labels,
+            force_ascii=False,
+            show_vals=False
+        )
+        fig.show()
 
     def addTime(self, note=""):
         """ add a new time """
