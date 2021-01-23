@@ -1,8 +1,8 @@
 # TimePY
 
-A simple python library to measure timings in your code
+A simple python library to measure and display timings of your code.
 
-## example usage 
+## Example usage 
 ```python
 # initialize Controller
 timeCtrl = TimeController()
@@ -22,7 +22,8 @@ timeCtrl.print(unit='ms', decimals=3, show_deltas=False, show_notes=False)  # cu
 timeCtrl.barChart()  # bar chart
 ```
 
-**outputs:**
+### Outputs
+#### Default
 ```
 [0]: 0.0s - "start"
 (0.15s) 
@@ -32,19 +33,20 @@ timeCtrl.barChart()  # bar chart
 (0.1s) 
 [3]: 0.49s - "saved file"
 ```
-
+#### Custom settings
 ```
 [0]: 0.0ms
 [1]: 150.558ms
 [2]: 390.892ms
 [3]: 490.896ms
 ```
-
+#### Bar chart
 ```
 [1] loaded file (0.15s)     █████████████████████████
 [2] processed file (0.24s)  ████████████████████████████████████████
 [3] saved file (0.1s)       ████████████████▋
 ```
 
+## Efficiency
 
-
+Each added time adds an overhead of about 0.6 nanoseconds. So TimePy should have no impact on performance for normal use cases. (see [time_measure.py](time_measure.py))

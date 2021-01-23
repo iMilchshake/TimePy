@@ -6,7 +6,7 @@ import TimePy.TimePy as TimePy
 timeCtrl = TimePy.TimeController()
 
 # sample size
-n = 10000000
+n = 1000000
 
 # add n timers
 for i in range(n):

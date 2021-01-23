@@ -14,6 +14,6 @@ time.sleep(0.10)
 timeCtrl.addTime("saved file")
 
 # print results
-print(timeCtrl)  # default print
+timeCtrl.print()  # print times with default settings
 timeCtrl.print(unit='ms', decimals=3, show_deltas=False, show_notes=False)  # custom settings
-timeCtrl.barChart()  # bar chart
+timeCtrl.barChart()  # print as bar chart
