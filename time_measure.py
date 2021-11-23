@@ -10,13 +10,13 @@ n = 1000000
 
 # add n timers
 for i in range(n):
-    timeCtrl.addTime()
+    timeCtrl.add_time()
 
 # calculate and print times
-t_overall = timeCtrl.getOverallTime()  # time it took to add all n timers
+t_overall = timeCtrl.get_overall_time()  # time it took to add all n timers
 t_average = t_overall / n  # time it took to add one timer on average
-print("overall time: ", TimePy.timeToString(t_overall, unit='s'))
-print("average time: ", TimePy.timeToString(t_average, unit='ns'))
+print("overall time: ", TimePy.time_to_string(t_overall, unit='s'))
+print("average time: ", TimePy.time_to_string(t_average, unit='ns'))
 
 # output:
 # overall time:  5.69s
